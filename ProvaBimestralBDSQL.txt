@@ -1,0 +1,60 @@
+1-
+
+CREATE TABLE movies(
+path VARCHAR(30) PRIMARY KEY,
+title VARCHAR(50) NOT NULL,
+duration TIME NOT NULL,
+release_date DATE NOT NULL,
+cast VARCHAR(20)[] REFERENCES artists(name),
+director VARCHAR(20) REFERENCES artists(name),
+poster BYTEA NOT NULL,
+genre VARCHAR(20) NOT NULL
+);
+
+
+2-
+
+CREATE TABLE artists(
+artist_id UUID PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
+born_date DATE NOT NULL,
+death_date DATE,
+type VARCHAR(20) NOT NULL,
+biography TEXT NOT NULL,
+famous_movie VARCHAR(50) NOT NULL
+);
+
+
+3-
+
+CREATE TABLE users(
+email VARCHAR(60) PRIMARY KEY,
+password VARCHAR(30) NOT NULL,
+full_name VARCHAR(50) NOT NULL,
+age INT (3) NOT NULL,
+favorite_genre VARCHAR(30) NOT NULL
+create_date GET DATE(),
+last_seen TIMESTAMP NOT NULL,
+phone_number VARCHAR(15) NOT NULL,
+plan VARCHAR(20) REFERENCES plans(plan_name)
+);
+
+
+4-
+
+CREATE TABLE plans(
+plan_name VARCHAR(20) PRIMARY KEY,
+price DOUBLE NOT NULL,
+recurrence TIMESTAMP NOT NULL,
+plan_description TEXT NOT NULL,
+logged_devices int (2) NOT NULL
+);
+
+
+
+GRUPO:
+Vitor Alves da Cunha 
+Ryan Edio Alves Cardoso
+Pedro Melo Strazzacappa Machado
+Mikael Manso Rodrigues Gomes 
+
